@@ -15,7 +15,7 @@ export function SourceAttribution({ source, url }: Props) {
     <div className="mt-10 rounded-2xl border border-border bg-secondary/50 p-5">
       <p className="text-sm text-muted-foreground">
         이 소식은 <span className="font-medium text-foreground">{source}</span>{" "}
-        보도를 소소.소가 따뜻한 시선으로 다시 정리한 것입니다. 자세한 내용은 원문에서 확인하세요.
+        보도를 소소.소가 다시 정리한 것입니다. 자세한 내용은 원문에서 확인하세요.
       </p>
       <a
         href={url}

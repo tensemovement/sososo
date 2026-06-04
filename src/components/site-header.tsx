@@ -25,7 +25,7 @@ export function SiteHeader({ generatedAt }: Props) {
             </span>
           </Link>
           <p className="mt-1 text-sm text-muted-foreground">
-            소소한 소식 — 매일 아침 전하는 따뜻한 뉴스
+            소소한 소식, 매일 아침 전하는 따뜻한 뉴스
           </p>
         </div>
         {generatedAt && (

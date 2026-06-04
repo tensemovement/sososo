@@ -21,13 +21,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "소소.소 — 소소한 소식",
-    template: "%s — 소소.소",
+    default: "소소.소, 소소한 소식",
+    template: "%s | 소소.소",
   },
   description:
     "매일 아침, 마음이 따뜻해지는 소소한 소식을 골라 전합니다. 전문적인 시선과 따뜻한 마음으로 다시 쓴 좋은 뉴스 아카이브.",
   openGraph: {
-    title: "소소.소 — 소소한 소식",
+    title: "소소.소, 소소한 소식",
     description: "매일 아침, 마음이 따뜻해지는 소소한 소식을 골라 전합니다.",
     type: "website",
     locale: "ko_KR",
