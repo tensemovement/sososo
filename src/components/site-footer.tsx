@@ -11,7 +11,16 @@ export function SiteFooter() {
           다시 정리해 전합니다. 모든 소식은 원문 출처를 함께 밝힙니다.
         </p>
         <p className="mt-4 text-xs text-muted-foreground/80">
-          © {new Date().getFullYear()} 소소.소
+          ©{" "}
+          <a
+            href="https://tensemovement.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-primary"
+          >
+            TENSE MOVEMENT
+          </a>{" "}
+          {new Date().getFullYear()}. All rights reserved.
         </p>
       </div>
     </footer>
