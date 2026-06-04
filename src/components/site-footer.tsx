@@ -7,8 +7,8 @@ export function SiteFooter() {
           소소.소, 소소한 소식
         </p>
         <p className="mt-2 max-w-xl leading-relaxed">
-          매일 아침, 마음이 따뜻해지는 소식을 골라 여러분께 전합니다. 모든 소식은
-          원문 출처를 함께 밝힙니다.
+          좋은 소식을 만날 때마다, 마음이 따뜻해지는 이야기를 골라 다시 정리합니다.
+          모든 소식은 원문 출처를 함께 밝힙니다.
         </p>
         <p className="mt-4 text-xs text-muted-foreground/80">
           ©{" "}
