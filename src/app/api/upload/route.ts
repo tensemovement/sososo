@@ -208,15 +208,20 @@ export async function POST(request: Request): Promise<NextResponse> {
     }),
   );
 
-  // Revalidate the home + JSON proxy + every tag page touched by this batch.
+  // Revalidate the home + JSON proxy + every tag page + every article detail
+  // page touched by this batch. Detail pages (/news/[id]) are statically
+  // generated with `revalidate = false`, so they only refresh when listed here.
   const touchedTags = new Set<string>();
+  const detailPaths = new Set<string>();
   for (const item of storedResult.data.items) {
     for (const tag of item.tags) touchedTags.add(tag);
+    detailPaths.add(`/news/${item.id}`);
   }
   const pathsToRevalidate = [
     "/",
     "/today.json",
     ...Array.from(touchedTags).map((t) => `/tags/${encodeURIComponent(t)}`),
+    ...Array.from(detailPaths),
   ];
   const revalidateResults = await Promise.all(
     pathsToRevalidate.map((p) => revalidateWithRetry(p)),
