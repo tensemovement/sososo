@@ -8,6 +8,7 @@ export function SiteFooter() {
         </p>
         <p className="mt-2 max-w-xl leading-relaxed">
           좋은 소식을 만날 때마다, 마음이 따뜻해지는 이야기를 골라 다시 정리합니다.
+          <br />
           모든 소식은 원문 출처를 함께 밝힙니다.
         </p>
         <p className="mt-4">
