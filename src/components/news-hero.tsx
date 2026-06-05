@@ -38,7 +38,7 @@ export function NewsHero({ item }: Props) {
               ))}
             </div>
           )}
-          <h2 className="font-heading text-3xl font-extrabold leading-tight text-foreground group-hover:text-primary md:text-4xl">
+          <h2 className="font-heading text-2xl font-extrabold leading-snug text-foreground group-hover:text-primary sm:text-3xl sm:leading-tight md:text-4xl">
             {item.title}
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
