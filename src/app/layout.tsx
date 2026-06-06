@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Nanum_Myeongjo } from "next/font/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const notoSansKr = Noto_Sans_KR({
@@ -52,7 +53,11 @@ export default function RootLayout({
       lang="ko"
       className={`${notoSansKr.variable} ${nanumMyeongjo.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper">{children}</body>
+      <body className="min-h-full flex flex-col bg-paper">
+        {children}
+        <GoogleAnalytics gaId="G-LR30QQCB88" />
+        <GoogleTagManager gtmId="GTM-W5GKJC57" />
+      </body>
     </html>
   );
 }
