@@ -31,6 +31,14 @@ export const metadata: Metadata = {
     description: "좋은 소식을 만날 때마다, 마음이 따뜻해지는 소소한 소식을 골라 전합니다.",
     type: "website",
     locale: "ko_KR",
+    images: [
+      {
+        url: "https://cdn.tensemovement.com/sososo/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "소소.소, 소소한 소식",
+      },
+    ],
   },
 };
 
