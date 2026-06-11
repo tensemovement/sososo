@@ -20,13 +20,18 @@ export function NewsHero({ item }: Props) {
         className="group grid grid-cols-1 gap-6 overflow-hidden rounded-3xl border border-border bg-card md:grid-cols-2 md:gap-0"
       >
         {item.imageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element -- arbitrary outlet image hosts; see news-card.
-          <img
-            src={item.imageUrl}
-            alt=""
-            className="aspect-[16/11] w-full object-cover md:aspect-auto md:h-full"
-            loading="eager"
-          />
+          // Wrapper is position:relative so the absolutely-filled img never
+          // contributes intrinsic height — tall portrait images crop instead
+          // of stretching the whole card.
+          <div className="relative aspect-[16/11] md:aspect-auto md:min-h-[26rem]">
+            {/* eslint-disable-next-line @next/next/no-img-element -- arbitrary outlet image hosts; see news-card. */}
+            <img
+              src={item.imageUrl}
+              alt=""
+              className="absolute inset-0 size-full object-cover"
+              loading="eager"
+            />
+          </div>
         ) : (
           <div className="hidden bg-gradient-warm opacity-90 md:block" />
         )}
