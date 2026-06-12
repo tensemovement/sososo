@@ -35,7 +35,11 @@ export function NewsCard({ item }: Props) {
           <h3 className="font-heading text-lg font-bold leading-snug text-foreground group-hover:text-primary">
             {item.title}
           </h3>
-          <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+          <p
+            className={`text-sm leading-relaxed text-muted-foreground ${
+              item.imageUrl ? "line-clamp-2" : ""
+            }`}
+          >
             {item.dek}
           </p>
           <div className="mt-auto flex items-center gap-2 pt-2 text-xs text-muted-foreground">

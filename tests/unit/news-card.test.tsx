@@ -35,4 +35,25 @@ describe("NewsCard", () => {
     );
     expect(noImage.querySelector("img")).toBeNull();
   });
+
+  it("clamps the dek only when an image is present", () => {
+    render(
+      <NewsCard
+        item={makeStoredItem({
+          imageUrl: "https://picsum.photos/seed/x/800/500",
+          dek: "이미지가 있는 카드의 요약",
+        })}
+      />,
+    );
+    expect(screen.getByText("이미지가 있는 카드의 요약")).toHaveClass("line-clamp-2");
+
+    render(
+      <NewsCard
+        item={makeStoredItem({ imageUrl: undefined, dek: "이미지가 없는 카드의 요약" })}
+      />,
+    );
+    expect(screen.getByText("이미지가 없는 카드의 요약")).not.toHaveClass(
+      "line-clamp-2",
+    );
+  });
 });
