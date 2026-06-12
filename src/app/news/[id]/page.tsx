@@ -9,6 +9,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { TagPill } from "@/components/tag-pill";
 import { SourceAttribution } from "@/components/source-attribution";
+import { ArticlePager } from "@/components/article-pager";
 
 export const revalidate = false;
 
@@ -46,8 +47,14 @@ export async function generateMetadata(
 
 export default async function NewsDetailPage(props: NewsPageProps) {
   const { id } = await props.params;
-  const item = await findItem(id);
-  if (!item) notFound();
+  const data = await loadNews();
+  // Feed is sorted firstSeenAt desc, so index+1 is the older neighbor and
+  // index-1 the newer one.
+  const index = data.items.findIndex((it) => it.id === id);
+  if (index === -1) notFound();
+  const item = data.items[index];
+  const older = data.items[index + 1] ?? null;
+  const newer = index > 0 ? data.items[index - 1] : null;
 
   // Body has no hard line breaks (routine rule); split on blank lines for
   // robustness, falling back to a single paragraph.
@@ -104,6 +111,8 @@ export default async function NewsDetailPage(props: NewsPageProps) {
 
           <SourceAttribution source={item.source} url={item.url} />
         </article>
+
+        <ArticlePager prev={older} next={newer} />
       </main>
       <SiteFooter />
     </>
